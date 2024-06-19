@@ -4,12 +4,16 @@ phases:
   install:
     runtime-versions:
       java: corretto17
-      docker: 19
-  build:
+  pre_build:
     commands:
-      - echo Build started on `date`
-      - mvn install
-      - docker build
+      - echo Nothing to do in the pre_build phase...
+    build:
+      commands:
+        - echo Build started on `date`
+        - mvn install
+    post_build:
+      commands:
+        - echo Build completed on `date`
 
 artifacts:
   files:
